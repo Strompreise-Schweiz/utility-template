@@ -1,0 +1,43 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Strompreise-Schweiz/supplier-data-validation/main/suppliers/power-utility/v1/supplier.schema.json",
+  "name": "Energieversorgung Musteringen",
+  "location": {
+    "address": {
+      "street": "Bahnhofstrasse 10",
+      "postal_code": "9710",
+      "city": "Musteringen",
+      "canton": "SZ",
+      "country": "CH"
+    },
+    "coordinates": {
+      "latitude": 47.207907,
+      "longitude": 8.890806
+    },
+    "map": {
+      "type": "google",
+      "url": "https://maps.app.goo.gl/ooUhWd56rtooapBY9"
+    }
+  },
+  "uid": "CHE-123.456.789",
+  "vse_id": "CH10000000001",
+  "website": "https://www.ew-musteringen.ch",
+  "email": "kundendienst@ew-musteringen.ch",
+  "logo": {
+    "path": "./logo.png",
+    "mime_type": "image/png"
+  },
+  "tariff_refs": {
+    "annual": [
+      {
+        "id": "annual-2025-residential",
+        "name": "EMN 50",
+        "description": "Haushalt / Kleingewerbe",
+        "path": "https://raw.githubusercontent.com/Strompreise-Schweiz/power-utility-example-repo/main/data/tariffs/emn-050/{year}.json",
+        "years": {
+          "from": 2025,
+          "to": 2025
+        }
+      }
+    ]
+  }
+}

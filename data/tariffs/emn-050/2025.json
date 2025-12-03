@@ -1,0 +1,91 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Strompreise-Schweiz/supplier-data-validation/main/tariffs/static/v1/tariff.schema.json",
+  "name": "EMN 50",
+  "description": "Haushalt / Kleingewerbe",
+  "valid_from": "2025-01-01T00:00:00+01:00",
+  "valid_to":   "2025-12-31T23:59:59+01:00",
+  "meta": {
+    "timezone": "Europe/Zurich",
+    "vat_rate_percent": 8.1,
+    "info_url": "https://www.ewwangensz.ch/public/upload/assets/5460/EMN%20050_2025.pdf"
+  },
+  "electricity_origin": {
+    "definition": "CH_Stromkennzeichnung",
+    "metric": "renewable_share_percent",
+    "by_quarter": [64.5, 64.5, 65.2, 66.0]
+  },
+  "prices": [
+    {
+      "name": "Winter Niedertarif",
+      "months": [1,2,3,10,11,12],
+      "electricity": [
+        { "component": "work", "unit": "CHF/kWh", "value": 0.2241 }
+      ],
+      "grid": [
+        { "component": "work", "unit": "CHF/kWh", "value": 0.081 },
+        { "component": "base", "mode":"fixed", "unit": "CHF/m",   "value": 10.5 }
+      ],
+      "metering": [
+        { "component": "base", "unit": "CHF/m", "mode": "fixed", "value": 0 }
+      ],
+      "dso": [
+        { "component": "work", "unit": "CHF/kWh", "value": 0.0308 }
+      ],
+      "feed_in": [
+        { "component": "work", "unit": "CHF/kWh", "value": 0.25 }
+      ],
+      "overrides": [
+        {
+          "name": "Werktags Hochtarif",
+          "weekdays": [1,2,3,4,5],
+          "intervals": [{ "from": "07:00", "to": "20:00" }],
+          "set": { "grid.work": 0.097 }
+        },
+        {
+          "name": "Samstag Hochtarif",
+          "weekdays": [6],
+          "intervals": [{ "from": "07:00", "to": "13:00" }],
+          "set": { "grid.work": 0.097, "integrated.work": 0.3519 }
+        }
+      ]
+    },
+    {
+      "name": "Sommer Niedertarif",
+      "months": [4,5,6,7,8,9],
+      "electricity": [
+        { "component": "work", "unit": "CHF/kWh", "value": 0.128 }
+      ],
+      "grid": [
+        { "component": "work", "unit": "CHF/kWh", "value": 0.081 },
+        { "component": "base", "mode":"fixed", "unit": "CHF/m",   "value": 10.5 }
+      ],
+      "metering": [
+        { "component": "base", "unit": "CHF/m", "mode": "fixed", "value": 0 }
+      ],
+      "dso": [
+        { "component": "work", "unit": "CHF/kWh", "value": 0.0308 }
+      ],
+      "integrated": [
+        { "component": "work", "unit": "CHF/kWh", "value": 0.2398 },
+        { "component": "base", "mode":"fixed", "unit": "CHF/m",   "value": 10.5 }
+      ],
+      "feed_in": [
+        { "component": "work", "unit": "CHF/kWh", "value": 0.25 }
+      ],
+      "overrides": [
+        {
+          "name": "Werktags Hochtarif",
+          "weekdays": [1,2,3,4,5],
+          "intervals": [{ "from": "07:00", "to": "20:00" }],
+          "set": { "grid.work": 0.097, "integrated.work": 0.2558 }
+        },
+        {
+          "name": "Samstag Hochtarif",
+          "weekdays": [6],
+          "intervals": [{ "from": "07:00", "to": "13:00" }],
+          "set": { "grid.work": 0.097, "integrated.work": 0.2558 }
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Strompreise-Schweiz/tariff-core/main/schemas/source-config/v1.schema.json",
+  "slug": "utility-template",
+  "name": "Energieversorgung Musteringen (fictional)",
+  "country": "CH",
+  "website": "https://www.ew-musteringen.ch",
+  "vse_id": "CH10000000001",
+  "data_license": "CC-BY-4.0",
+  "dynamic": [
+    {
+      "id": "grid-dynamic",
+      "name": "Sample Grid Dynamic",
+      "enabled": false,
+      "api_url": "https://api.ew-musteringen.ch/v1/tariffs",
+      "query": {
+        "tariff_name": "grid_dynamic"
+      },
+      "components": [
+        "grid"
+      ],
+      "add_components": [
+        {
+          "tariff_type": "regional_fees",
+          "unit": "CHF_kWh",
+          "value": 0.0016,
+          "reason": "The API has no regional fees. Value from the tariff sheet.",
+          "valid_from": "2026-01-01",
+          "valid_to": "2026-12-31"
+        }
+      ],
+      "note": "Example only. Set enabled to true and enter the real URL."
+    }
+  ],
+  "static": {
+    "sources": [
+      {
+        "name": "musteringen-2026",
+        "file": "curation/2026.source.json",
+        "note": "Hand-written source. For a utility that publishes JSON use url instead of file."
+      }
+    ]
+  }
+}

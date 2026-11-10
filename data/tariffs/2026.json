@@ -1,0 +1,255 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Strompreise-Schweiz/tariff-core/main/schemas/tariff-document/v1.schema.json",
+  "dsoName": "Energieversorgung Musteringen",
+  "dsoNumber": 10000000001,
+  "_meta": {
+    "schemaVersion": "1.0",
+    "year": 2026,
+    "generatedAt": "2026-11-02T16:11:30+00:00",
+    "source": [
+      {
+        "name": "musteringen-2026",
+        "file": "curation/2026.source.json",
+        "sha256": "3cd7cb53190d510441b057e5280b4c1a2aa823a183b580dd7b581ccfddaf57f7"
+      }
+    ],
+    "pricesExcludeVat": true,
+    "repairs": [],
+    "overrides": [
+      {
+        "action": "override",
+        "match": {
+          "tariffName": "Direct metering"
+        },
+        "set": [
+          "comment"
+        ],
+        "reason": "Example of a correction: every change states why it was made.",
+        "sourceUrl": "https://www.ew-musteringen.ch/tarife-2026.pdf",
+        "count": 1
+      }
+    ],
+    "issues": []
+  },
+  "tariffs": [
+    {
+      "tariffName": "Sample Energy Single Rate",
+      "tariffType": "electricity",
+      "tariffForm": "constant",
+      "customerVoltageLevel": 7,
+      "startDate": "2026-01-01",
+      "endDate": "2026-12-31",
+      "customerType": "Households up to 100 MWh/year",
+      "prices": {
+        "base": {
+          "price": 3.0,
+          "priceUnit": "CHF/M"
+        },
+        "energy": [
+          {
+            "months": [],
+            "weekdays": [],
+            "from": "00:00",
+            "to": "00:00",
+            "price": 0.12,
+            "priceUnit": "CHF/kWh"
+          }
+        ]
+      },
+      "id": "electricity-sample-energy-single-rate-ne7"
+    },
+    {
+      "tariffName": "Sample Energy Dual Rate",
+      "tariffType": "electricity",
+      "tariffForm": "multilevel",
+      "customerVoltageLevel": 7,
+      "startDate": "2026-01-01",
+      "endDate": "2026-12-31",
+      "customerType": "Households up to 100 MWh/year",
+      "prices": {
+        "base": {
+          "price": 3.0,
+          "priceUnit": "CHF/M"
+        },
+        "energy": [
+          {
+            "months": [],
+            "weekdays": [
+              "Mo",
+              "Tu",
+              "We",
+              "Th",
+              "Fr"
+            ],
+            "from": "07:00",
+            "to": "20:00",
+            "price": 0.15,
+            "priceUnit": "CHF/kWh"
+          },
+          {
+            "months": [],
+            "weekdays": [
+              "Mo",
+              "Tu",
+              "We",
+              "Th",
+              "Fr"
+            ],
+            "from": "20:00",
+            "to": "07:00",
+            "price": 0.1,
+            "priceUnit": "CHF/kWh"
+          },
+          {
+            "months": [],
+            "weekdays": [
+              "Sa",
+              "So"
+            ],
+            "from": "00:00",
+            "to": "00:00",
+            "price": 0.1,
+            "priceUnit": "CHF/kWh"
+          }
+        ]
+      },
+      "id": "electricity-sample-energy-dual-rate-ne7"
+    },
+    {
+      "tariffName": "Sample Grid Single Rate",
+      "tariffType": "grid",
+      "tariffForm": "constant",
+      "customerVoltageLevel": 7,
+      "startDate": "2026-01-01",
+      "endDate": "2026-12-31",
+      "customerType": "Households up to 100 MWh/year",
+      "prices": {
+        "base": {
+          "price": 5.0,
+          "priceUnit": "CHF/M"
+        },
+        "energy": [
+          {
+            "months": [],
+            "weekdays": [],
+            "from": "00:00",
+            "to": "00:00",
+            "price": 0.1,
+            "priceUnit": "CHF/kWh"
+          }
+        ],
+        "refundStorage": {
+          "price": 0.09,
+          "priceUnit": "CHF/kWh"
+        }
+      },
+      "id": "grid-sample-grid-single-rate-ne7"
+    },
+    {
+      "tariffName": "Sample Grid Dynamic",
+      "tariffType": "grid",
+      "tariffForm": "dynamic",
+      "customerVoltageLevel": 7,
+      "startDate": "2026-01-01",
+      "endDate": "2026-12-31",
+      "customerType": "Households up to 100 MWh/year",
+      "prices": {
+        "base": {
+          "price": 5.0,
+          "priceUnit": "CHF/M"
+        },
+        "dynamic": {
+          "url": "https://api.ew-musteringen.ch/v1/tariffs?tariff_name=grid_dynamic"
+        }
+      },
+      "id": "grid-sample-grid-dynamic-ne7"
+    },
+    {
+      "tariffName": "Direct metering",
+      "tariffType": "metering",
+      "tariffForm": "constant",
+      "customerVoltageLevel": 7,
+      "startDate": "2026-01-01",
+      "endDate": "2026-12-31",
+      "customerType": "All customers with a metering point",
+      "prices": {
+        "base": {
+          "price": 5.4,
+          "priceUnit": "CHF/M"
+        }
+      },
+      "comment": "Metering tariff per metering point and month",
+      "id": "metering-direct-metering-ne7"
+    },
+    {
+      "tariffName": "Municipal and cantonal fees",
+      "tariffType": "regional_fees",
+      "tariffForm": "constant",
+      "customerVoltageLevel": 7,
+      "startDate": "2026-01-01",
+      "endDate": "2026-12-31",
+      "customerType": "All customers",
+      "prices": {
+        "municipalityTaxes": [
+          {
+            "municipalityNumber": 11361,
+            "municipalityName": "Musteringen",
+            "municipalityEnergy": [
+              {
+                "months": [],
+                "weekdays": [],
+                "from": "00:00",
+                "to": "00:00",
+                "price": 0.007,
+                "priceUnit": "CHF/kWh"
+              }
+            ],
+            "municipalityComment": "Concession fee"
+          }
+        ],
+        "cantonalTaxes": [
+          {
+            "cantonName": "SZ",
+            "cantonEnergy": [
+              {
+                "months": [],
+                "weekdays": [],
+                "from": "00:00",
+                "to": "00:00",
+                "price": 0.0,
+                "priceUnit": "CHF/kWh"
+              }
+            ]
+          }
+        ]
+      },
+      "id": "regional-fees-municipal-and-cantonal-fees-ne7"
+    }
+  ],
+  "products": [
+    {
+      "id": "sample-standard",
+      "name": "Sample standard tariff (single rate)",
+      "status": "verified",
+      "sourceUrl": "https://www.ew-musteringen.ch/tarife-2026.pdf",
+      "components": {
+        "electricity": "electricity-sample-energy-single-rate-ne7",
+        "grid": "grid-sample-grid-single-rate-ne7",
+        "metering": "metering-direct-metering-ne7",
+        "regional_fees": "regional-fees-municipal-and-cantonal-fees-ne7"
+      }
+    },
+    {
+      "id": "sample-dual-rate",
+      "name": "Sample dual rate",
+      "status": "suggested",
+      "note": "Not checked against the price sheet yet.",
+      "components": {
+        "electricity": "electricity-sample-energy-dual-rate-ne7",
+        "grid": "grid-sample-grid-single-rate-ne7",
+        "metering": "metering-direct-metering-ne7",
+        "regional_fees": "regional-fees-municipal-and-cantonal-fees-ne7"
+      }
+    }
+  ]
+}

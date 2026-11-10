@@ -1,37 +1,31 @@
-# Elektrizitätswerk Wangen Electricity Data
+# Example: power utility repository
 
-This repository provides **open electricity data** for [elektrizitaetswerk-wangen](./data/supplier.json).  It is part of the [Strompreise Schweiz](https://www.strompreise-schweiz.ch) initiative.
+Copy this repository for each new organization. The utility in it is fictional.
 
-## Contents
+## Three tariff forms
 
-- **`/data`**  
-  JSON files containing detailed information about the electricity supplier, its tariffs, and prices.
+| `tariffForm` | Meaning | Example here |
+|---|---|---|
+| `constant` | One price at all times | Sample Energy Single Rate |
+| `multilevel` | Prices by month, weekday or time | Sample Energy Dual Rate |
+| `dynamic` | Prices published each day for the next day | Sample Grid Dynamic |
 
-- **`/assets`**  
-  Supplier logo and related visual assets.
+## What a new organization needs
 
-All data is structured in a machine-readable way to support integration with external applications and services.
+1. Create the repo from this template and adapt `config/source.json`.
+2. Enter a `url` in `static.sources`. If the utility has no usable JSON, write the source by hand as
+   `curation/<year>.source.json`.
+3. For dynamic tariffs, add an entry in `dynamic` and start the workflow by hand once.
+4. Propose products with `suggest_products.py`, check them against the price sheet, and copy them
+   to `curation/<year>.json`.
 
-## Data Validation
+See [`adding-organization.md`](https://github.com/Strompreise-Schweiz/tariff-core/blob/main/docs/adding-organization.md).
 
-Every dataset is automatically validated against the [`supplier-data-validation`](https://github.com/Strompreise-Schweiz/supplier-data-validation) schemas using GitHub Actions. This ensures consistent structure and reliable data quality across suppliers.
+## Structure
 
-## Usage
-
-The data can be freely used for:
-
-- Research and analysis  
-- Integration into applications and services  
-- Visualizations and comparisons  
-
-If you build something cool with it, we’d love to hear about it!
-
-## Website
-
-For more information about the initiative and to explore Swiss electricity tariffs, visit [www.strompreise-schweiz.ch](https://www.strompreise-schweiz.ch).
-
-## License
-
-The data in the [`/data`](./data) folder is licensed under the [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
-
-Logos and other materials in the [`/assets`](./assets) folder are provided for reference only and may be subject to separate rights.
+| Path | Content | Who changes it |
+|---|---|---|
+| `config/source.json` | Data sources | Person |
+| `curation/<year>.json` | Corrections and product mapping, each with a reason | Person |
+| `curation/<year>.source.json` | Hand-written source, only if needed | Person |
+| `data/**` | Generated data | GitHub Actions only |

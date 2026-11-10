@@ -1,5 +1,5 @@
 {
-  "$schema": "https://raw.githubusercontent.com/Strompreise-Schweiz/supplier-data-validation/main/suppliers/power-utility/v1/supplier.schema.json",
+  "$schema": "https://raw.githubusercontent.com/Strompreise-Schweiz/tariff-core/main/schemas/supplier/v1.schema.json",
   "name": "Energieversorgung Musteringen",
   "location": {
     "address": {
@@ -25,19 +25,5 @@
   "logo": {
     "path": "./logo.png",
     "mime_type": "image/png"
-  },
-  "tariff_refs": {
-    "annual": [
-      {
-        "id": "annual-2025-residential",
-        "name": "EMN 50",
-        "description": "Haushalt / Kleingewerbe",
-        "path": "https://raw.githubusercontent.com/Strompreise-Schweiz/power-utility-example-repo/main/data/tariffs/emn-050/{year}.json",
-        "years": {
-          "from": 2025,
-          "to": 2025
-        }
-      }
-    ]
   }
 }

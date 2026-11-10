@@ -1,0 +1,42 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Strompreise-Schweiz/tariff-core/main/schemas/curation/v1.schema.json",
+  "year": 2026,
+  "overrides": [
+    {
+      "match": {
+        "tariffName": "Direct metering"
+      },
+      "set": {
+        "comment": "Metering tariff per metering point and month"
+      },
+      "reason": "Example of a correction: every change states why it was made.",
+      "sourceUrl": "https://www.ew-musteringen.ch/tarife-2026.pdf"
+    }
+  ],
+  "products": [
+    {
+      "id": "sample-standard",
+      "name": "Sample standard tariff (single rate)",
+      "status": "verified",
+      "sourceUrl": "https://www.ew-musteringen.ch/tarife-2026.pdf",
+      "components": {
+        "electricity": "electricity-sample-energy-single-rate-ne7",
+        "grid": "grid-sample-grid-single-rate-ne7",
+        "metering": "metering-direct-metering-ne7",
+        "regional_fees": "regional-fees-municipal-and-cantonal-fees-ne7"
+      }
+    },
+    {
+      "id": "sample-dual-rate",
+      "name": "Sample dual rate",
+      "status": "suggested",
+      "note": "Not checked against the price sheet yet.",
+      "components": {
+        "electricity": "electricity-sample-energy-dual-rate-ne7",
+        "grid": "grid-sample-grid-single-rate-ne7",
+        "metering": "metering-direct-metering-ne7",
+        "regional_fees": "regional-fees-municipal-and-cantonal-fees-ne7"
+      }
+    }
+  ]
+}

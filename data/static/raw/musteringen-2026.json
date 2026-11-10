@@ -1,0 +1,192 @@
+{
+  "dsoName": "Energieversorgung Musteringen",
+  "dsoNumber": 10000000001,
+  "tariffs": [
+    {
+      "tariffName": "Sample Energy Single Rate",
+      "tariffType": "electricity",
+      "tariffForm": "constant",
+      "customerVoltageLevel": 7,
+      "startDate": "2026-01-01",
+      "endDate": "2026-12-31",
+      "customerType": "Households up to 100 MWh/year",
+      "prices": {
+        "base": {
+          "price": 3.0,
+          "priceUnit": "CHF/M"
+        },
+        "energy": [
+          {
+            "months": [],
+            "weekdays": [],
+            "from": "00:00",
+            "to": "00:00",
+            "price": 0.12,
+            "priceUnit": "CHF/kWh"
+          }
+        ]
+      }
+    },
+    {
+      "tariffName": "Sample Energy Dual Rate",
+      "tariffType": "electricity",
+      "tariffForm": "multilevel",
+      "customerVoltageLevel": 7,
+      "startDate": "2026-01-01",
+      "endDate": "2026-12-31",
+      "customerType": "Households up to 100 MWh/year",
+      "prices": {
+        "base": {
+          "price": 3.0,
+          "priceUnit": "CHF/M"
+        },
+        "energy": [
+          {
+            "months": [],
+            "weekdays": [
+              "Mo",
+              "Tu",
+              "We",
+              "Th",
+              "Fr"
+            ],
+            "from": "07:00",
+            "to": "20:00",
+            "price": 0.15,
+            "priceUnit": "CHF/kWh"
+          },
+          {
+            "months": [],
+            "weekdays": [
+              "Mo",
+              "Tu",
+              "We",
+              "Th",
+              "Fr"
+            ],
+            "from": "20:00",
+            "to": "07:00",
+            "price": 0.1,
+            "priceUnit": "CHF/kWh"
+          },
+          {
+            "months": [],
+            "weekdays": [
+              "Sa",
+              "So"
+            ],
+            "from": "00:00",
+            "to": "00:00",
+            "price": 0.1,
+            "priceUnit": "CHF/kWh"
+          }
+        ]
+      }
+    },
+    {
+      "tariffName": "Sample Grid Single Rate",
+      "tariffType": "grid",
+      "tariffForm": "constant",
+      "customerVoltageLevel": 7,
+      "startDate": "2026-01-01",
+      "endDate": "2026-12-31",
+      "customerType": "Households up to 100 MWh/year",
+      "prices": {
+        "base": {
+          "price": 5.0,
+          "priceUnit": "CHF/M"
+        },
+        "energy": [
+          {
+            "months": [],
+            "weekdays": [],
+            "from": "00:00",
+            "to": "00:00",
+            "price": 0.1,
+            "priceUnit": "CHF/kWh"
+          }
+        ],
+        "refundStorage": {
+          "price": 0.09,
+          "priceUnit": "CHF/kWh"
+        }
+      }
+    },
+    {
+      "tariffName": "Sample Grid Dynamic",
+      "tariffType": "grid",
+      "tariffForm": "dynamic",
+      "customerVoltageLevel": 7,
+      "startDate": "2026-01-01",
+      "endDate": "2026-12-31",
+      "customerType": "Households up to 100 MWh/year",
+      "prices": {
+        "base": {
+          "price": 5.0,
+          "priceUnit": "CHF/M"
+        },
+        "dynamic": {
+          "url": "https://api.ew-musteringen.ch/v1/tariffs?tariff_name=grid_dynamic"
+        }
+      }
+    },
+    {
+      "tariffName": "Direct metering",
+      "tariffType": "metering",
+      "tariffForm": "constant",
+      "customerVoltageLevel": 7,
+      "startDate": "2026-01-01",
+      "endDate": "2026-12-31",
+      "customerType": "All customers with a metering point",
+      "prices": {
+        "base": {
+          "price": 5.4,
+          "priceUnit": "CHF/M"
+        }
+      }
+    },
+    {
+      "tariffName": "Municipal and cantonal fees",
+      "tariffType": "regional_fees",
+      "tariffForm": "constant",
+      "customerVoltageLevel": 7,
+      "startDate": "2026-01-01",
+      "endDate": "2026-12-31",
+      "customerType": "All customers",
+      "prices": {
+        "municipalityTaxes": [
+          {
+            "municipalityNumber": 11361,
+            "municipalityName": "Musteringen",
+            "municipalityEnergy": [
+              {
+                "months": [],
+                "weekdays": [],
+                "from": "00:00",
+                "to": "00:00",
+                "price": 0.007,
+                "priceUnit": "CHF/kWh"
+              }
+            ],
+            "municipalityComment": "Concession fee"
+          }
+        ],
+        "cantonalTaxes": [
+          {
+            "cantonName": "SZ",
+            "cantonEnergy": [
+              {
+                "months": [],
+                "weekdays": [],
+                "from": "00:00",
+                "to": "00:00",
+                "price": 0.0,
+                "priceUnit": "CHF/kWh"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,6 +1,13 @@
 # Example: power utility repository
 
-Copy this repository for each new organization. The utility in it is fictional.
+Copy this repository for a utility that gets its own repo: one with dynamic tariffs, or one that
+maintains its data itself. Utilities with constant and multilevel tariffs only go into the hub repo
+[`strompreise-schweiz.github.io`](https://github.com/Strompreise-Schweiz/strompreise-schweiz.github.io)
+instead. The utility in this template is fictional.
+
+After creating the repo, enable Settings > Pages > Source "GitHub Actions" and add the repo to
+`repositories.json` in the hub repo. The data is then served at
+`https://data.strompreise-schweiz.ch/<repo>/`.
 
 ## Three tariff forms
 

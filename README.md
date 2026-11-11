@@ -9,6 +9,15 @@ After creating the repo, enable Settings > Pages > Source "GitHub Actions" and a
 `repositories.json` in the hub repo. The data is then served at
 `https://data.strompreise-schweiz.ch/<repo>/`.
 
+Then replace this paragraph and the ones above with a short description of the utility, and add the
+badges that show whether its file follows the [OpenAPI definitions of the VSE](https://github.com/Strompreise-Schweiz/tariff-core/tree/main/schemas/vse). Replace
+`<repo>` with the repo name:
+
+```markdown
+[![VSE 1.0.0](https://img.shields.io/endpoint?url=https%3A%2F%2Fdata.strompreise-schweiz.ch%2F<repo>%2Fbadges%2Fvse-1.0.0.json)](data/vse-conformance.json)
+[![VSE 1.0.1](https://img.shields.io/endpoint?url=https%3A%2F%2Fdata.strompreise-schweiz.ch%2F<repo>%2Fbadges%2Fvse-1.0.1.json)](data/vse-conformance.json)
+```
+
 ## Three tariff forms
 
 | `tariffForm` | Meaning | Example here |

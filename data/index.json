@@ -13,5 +13,7 @@
       "2026": "https://raw.githubusercontent.com/Strompreise-Schweiz/utility-template/main/data/tariffs/2026.json"
     }
   },
+  "vse_conformance": "https://raw.githubusercontent.com/Strompreise-Schweiz/utility-template/main/data/vse-conformance.json",
+  "status": "https://raw.githubusercontent.com/Strompreise-Schweiz/utility-template/main/data/status.json",
   "dynamic": []
 }

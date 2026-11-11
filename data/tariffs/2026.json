@@ -5,7 +5,7 @@
   "_meta": {
     "schemaVersion": "1.0",
     "year": 2026,
-    "generatedAt": "2026-11-02T16:11:30+00:00",
+    "generatedAt": "2026-11-11T21:41:44+00:00",
     "source": [
       {
         "name": "musteringen-2026",
@@ -14,7 +14,13 @@
       }
     ],
     "pricesExcludeVat": true,
-    "repairs": [],
+    "repairs": [
+      {
+        "code": "weekday_spelling",
+        "detail": "converted weekday So to Su, the OpenAPI enum value",
+        "count": 1
+      }
+    ],
     "overrides": [
       {
         "action": "override",
@@ -42,7 +48,7 @@
       "customerType": "Households up to 100 MWh/year",
       "prices": {
         "base": {
-          "price": 3.0,
+          "price": 3,
           "priceUnit": "CHF/M"
         },
         "energy": [
@@ -68,7 +74,7 @@
       "customerType": "Households up to 100 MWh/year",
       "prices": {
         "base": {
-          "price": 3.0,
+          "price": 3,
           "priceUnit": "CHF/M"
         },
         "energy": [
@@ -104,7 +110,7 @@
             "months": [],
             "weekdays": [
               "Sa",
-              "So"
+              "Su"
             ],
             "from": "00:00",
             "to": "00:00",
@@ -125,7 +131,7 @@
       "customerType": "Households up to 100 MWh/year",
       "prices": {
         "base": {
-          "price": 5.0,
+          "price": 5,
           "priceUnit": "CHF/M"
         },
         "energy": [
@@ -155,7 +161,7 @@
       "customerType": "Households up to 100 MWh/year",
       "prices": {
         "base": {
-          "price": 5.0,
+          "price": 5,
           "priceUnit": "CHF/M"
         },
         "dynamic": {
@@ -216,7 +222,7 @@
                 "weekdays": [],
                 "from": "00:00",
                 "to": "00:00",
-                "price": 0.0,
+                "price": 0,
                 "priceUnit": "CHF/kWh"
               }
             ]

@@ -1,0 +1,44 @@
+{
+  "$comment": "Summary of the checks of this utility, for https://data.strompreise-schweiz.ch/status.html.",
+  "utility": "Energieversorgung Musteringen (fictional)",
+  "slug": "utility-template",
+  "years": [
+    {
+      "year": 2026,
+      "blocked": false,
+      "online": true,
+      "errors": 0,
+      "warnings": 0,
+      "accepted": 0,
+      "codes": {}
+    }
+  ],
+  "vse": {
+    "sources": [
+      {
+        "name": "musteringen-2026",
+        "1.0.0": {
+          "valid": true,
+          "errors": 0
+        },
+        "1.0.1": {
+          "valid": false,
+          "errors": 1
+        }
+      }
+    ],
+    "published": [
+      {
+        "file": "tariffs/2026.json",
+        "1.0.0": {
+          "valid": false,
+          "errors": 1
+        },
+        "1.0.1": {
+          "valid": true,
+          "errors": 0
+        }
+      }
+    ]
+  }
+}

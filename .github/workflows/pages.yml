@@ -24,4 +24,7 @@ concurrency:
 
 jobs:
   deploy:
+    # The template itself holds a fictional utility and is not published. Repos created
+    # from it have another name, so this condition is true there.
+    if: github.repository != 'Strompreise-Schweiz/utility-template'
     uses: Strompreise-Schweiz/tariff-core/.github/workflows/reusable-pages.yml@main

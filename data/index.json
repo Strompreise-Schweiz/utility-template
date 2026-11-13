@@ -3,6 +3,7 @@
   "organization": "Energieversorgung Musteringen (fictional)",
   "slug": "utility-template",
   "vse_id": "CH10000000001",
+  "elcom_id": null,
   "website": "https://www.ew-musteringen.ch",
   "license": "CC-BY-4.0",
   "repository": "https://github.com/Strompreise-Schweiz/utility-template",

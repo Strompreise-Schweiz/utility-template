@@ -13,6 +13,23 @@
       "sourceUrl": "https://www.ew-musteringen.ch/tarife-2026.pdf"
     }
   ],
+  "prices": [
+    {
+      "prices": "grid-dynamic",
+      "from": "2026-01-01",
+      "to": "2026-12-31",
+      "set": {
+        "regional_fees": [
+          {
+            "unit": "CHF_kWh",
+            "value": 0.0016
+          }
+        ]
+      },
+      "reason": "Example of a correction of day prices: the API has no regional fees. Value from the tariff sheet.",
+      "sourceUrl": "https://www.ew-musteringen.ch/tarife-2026.pdf"
+    }
+  ],
   "products": [
     {
       "id": "sample-standard",

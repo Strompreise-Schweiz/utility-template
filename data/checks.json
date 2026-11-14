@@ -1,0 +1,99 @@
+{
+  "$comment": "What is wrong with the data of this utility. Errors block a year, warnings and accepted issues do not. Information on the VSE conformance does not block anything.",
+  "utility": "Energieversorgung Musteringen (fictional)",
+  "slug": "utility-template",
+  "summary": {
+    "errors": 0,
+    "warnings": 0,
+    "accepted": 0,
+    "incompleteDays": 0
+  },
+  "vseDefinitions": {
+    "1.0.0": "https://raw.githubusercontent.com/Strompreise-Schweiz/tariff-core/main/schemas/vse/ch-electricity-tariffs-openapi-1.0.0.yaml",
+    "1.0.1": "https://raw.githubusercontent.com/Strompreise-Schweiz/tariff-core/main/schemas/vse/ch-electricity-tariffs-openapi-1.0.1.yaml"
+  },
+  "sources": {
+    "tariffs": [
+      {
+        "name": "musteringen-2026",
+        "file": "curation/2026.source.json",
+        "sha256": "3cd7cb53190d510441b057e5280b4c1a2aa823a183b580dd7b581ccfddaf57f7",
+        "vse": {
+          "1.0.0": {
+            "valid": true,
+            "errors": 0,
+            "summary": []
+          },
+          "1.0.1": {
+            "valid": false,
+            "errors": 1,
+            "summary": [
+              {
+                "path": "tariffs/*/prices/energy/*/weekdays/*",
+                "message": "must be equal to one of the allowed values: Mo, Tu, We, Th, Fr, Sa, Su",
+                "count": 1
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "prices": [
+      {
+        "id": "grid-dynamic",
+        "url": "https://api.ew-musteringen.ch/v1/tariffs?tariff_name=grid_dynamic",
+        "enabled": false,
+        "days": 0,
+        "first": null,
+        "last": null
+      }
+    ]
+  },
+  "tariffs": [
+    {
+      "year": 2026,
+      "published": true,
+      "online": true,
+      "repairs": [
+        {
+          "code": "overnight_window_split",
+          "detail": "split a window across midnight in two, because VSE 1.0.1 requires from < to",
+          "count": 1
+        },
+        {
+          "code": "weekday_spelling",
+          "detail": "converted weekday So to Su, the OpenAPI enum value",
+          "count": 1
+        }
+      ],
+      "issues": [],
+      "excluded": [],
+      "vse": {
+        "1.0.0": {
+          "valid": false,
+          "errors": 1,
+          "summary": [
+            {
+              "path": "tariffs/*/prices/energy/*/weekdays/*",
+              "message": "must be equal to one of the allowed values: Mo, Tu, We, Th, Fr, Sa, So",
+              "count": 1
+            }
+          ]
+        },
+        "1.0.1": {
+          "valid": true,
+          "errors": 0,
+          "summary": []
+        }
+      }
+    }
+  ],
+  "prices": [
+    {
+      "id": "grid-dynamic",
+      "days": 0,
+      "incomplete": []
+    }
+  ],
+  "products": []
+}

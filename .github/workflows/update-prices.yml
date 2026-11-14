@@ -1,5 +1,6 @@
-name: Fetch dynamic tariffs
+name: Update prices
 
+# Day prices of the dynamic tariffs: download, then build every published file.
 on:
   schedule:
     # GitHub does not guarantee these times, so one run is not enough. Later runs
@@ -17,10 +18,13 @@ on:
 permissions:
   contents: write
 
+# Shared with "Update tariffs": both commit data/.
 concurrency:
-  group: fetch-dynamic
+  group: update
   cancel-in-progress: false
 
 jobs:
-  fetch:
-    uses: Strompreise-Schweiz/tariff-core/.github/workflows/reusable-fetch.yml@main
+  update:
+    uses: Strompreise-Schweiz/tariff-core/.github/workflows/reusable-update.yml@main
+    with:
+      fetch: prices

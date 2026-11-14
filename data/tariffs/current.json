@@ -3,26 +3,22 @@
   "dsoName": "Energieversorgung Musteringen",
   "dsoNumber": 10000000001,
   "_meta": {
-    "schemaVersion": "1.0",
+    "schemaVersion": "2.0",
     "vseVersion": "1.0.1",
     "generator": {
       "name": "tariff-core",
-      "version": "3.1.0",
+      "version": "4.0.0",
       "url": "https://github.com/Strompreise-Schweiz/tariff-core"
     },
     "year": 2026,
-    "generatedAt": "2026-11-11T22:18:04+00:00",
+    "pricesExcludeVat": true,
     "source": [
       {
         "name": "musteringen-2026",
         "file": "curation/2026.source.json",
-        "sha256": "3cd7cb53190d510441b057e5280b4c1a2aa823a183b580dd7b581ccfddaf57f7",
-        "conformsTo": [
-          "1.0.0"
-        ]
+        "sha256": "3cd7cb53190d510441b057e5280b4c1a2aa823a183b580dd7b581ccfddaf57f7"
       }
     ],
-    "pricesExcludeVat": true,
     "repairs": [
       {
         "code": "overnight_window_split",
@@ -35,7 +31,7 @@
         "count": 1
       }
     ],
-    "overrides": [
+    "corrections": [
       {
         "action": "override",
         "match": {
@@ -48,9 +44,7 @@
         "sourceUrl": "https://www.ew-musteringen.ch/tarife-2026.pdf",
         "count": 1
       }
-    ],
-    "issues": [],
-    "excluded": []
+    ]
   },
   "tariffs": [
     {
@@ -194,7 +188,8 @@
           "priceUnit": "CHF/M"
         },
         "dynamic": {
-          "url": "https://api.ew-musteringen.ch/v1/tariffs?tariff_name=grid_dynamic"
+          "url": "https://data.strompreise-schweiz.ch/utility-template/prices/grid-dynamic/latest.json",
+          "sourceUrl": "https://api.ew-musteringen.ch/v1/tariffs?tariff_name=grid_dynamic"
         }
       },
       "id": "grid-sample-grid-dynamic-ne7"

@@ -38,7 +38,7 @@
         }
       }
     ],
-    "prices": [
+    "days": [
       {
         "id": "grid-dynamic",
         "url": "https://api.ew-musteringen.ch/v1/tariffs?tariff_name=grid_dynamic",
@@ -88,12 +88,39 @@
       }
     }
   ],
-  "prices": [
+  "days": [
     {
       "id": "grid-dynamic",
+      "tariffs": [
+        "2026/grid-sample-grid-dynamic-ne7"
+      ],
       "days": 0,
-      "incomplete": []
+      "incomplete": [],
+      "withoutTariff": []
     }
   ],
-  "products": []
+  "products": [
+    {
+      "id": "sample-standard",
+      "year": 2026,
+      "default": true,
+      "status": "verified",
+      "missing": [],
+      "dynamic": [],
+      "days": 0,
+      "incomplete": [],
+      "notes": []
+    },
+    {
+      "id": "sample-dual-rate",
+      "year": 2026,
+      "default": false,
+      "status": "suggested",
+      "missing": [],
+      "dynamic": [],
+      "days": 0,
+      "incomplete": [],
+      "notes": []
+    }
+  ]
 }

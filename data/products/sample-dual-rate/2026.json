@@ -1,0 +1,218 @@
+{
+  "$schema": "https://raw.githubusercontent.com/Strompreise-Schweiz/tariff-core/main/schemas/product/v1.schema.json",
+  "id": "sample-dual-rate",
+  "name": "Sample dual rate",
+  "year": 2026,
+  "status": "suggested",
+  "default": false,
+  "note": "Not checked against the price sheet yet.",
+  "dsoName": "Energieversorgung Musteringen",
+  "dsoNumber": 10000000001,
+  "pricesExcludeVat": true,
+  "total": {
+    "fixed": {
+      "electricity": [{"unit": "CHF_m", "value": 3}],
+      "grid": [{"unit": "CHF_m", "value": 5}],
+      "metering": [{"unit": "CHF_m", "value": 5.4}],
+      "total": [{"unit": "CHF_m", "value": 13.4}]
+    },
+    "windows": [
+      {
+        "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        "weekdays": ["Mo", "Tu", "We", "Th", "Fr"],
+        "from": "00:00",
+        "to": "07:00",
+        "electricity": [{"unit": "CHF_kWh", "value": 0.1}],
+        "grid": [{"unit": "CHF_kWh", "value": 0.1}],
+        "regional_fees": [{"unit": "CHF_kWh", "value": 0.007}],
+        "total": [{"unit": "CHF_kWh", "value": 0.207}]
+      },
+      {
+        "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        "weekdays": ["Mo", "Tu", "We", "Th", "Fr"],
+        "from": "07:00",
+        "to": "20:00",
+        "electricity": [{"unit": "CHF_kWh", "value": 0.15}],
+        "grid": [{"unit": "CHF_kWh", "value": 0.1}],
+        "regional_fees": [{"unit": "CHF_kWh", "value": 0.007}],
+        "total": [{"unit": "CHF_kWh", "value": 0.257}]
+      },
+      {
+        "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        "weekdays": ["Mo", "Tu", "We", "Th", "Fr"],
+        "from": "20:00",
+        "to": "23:59",
+        "electricity": [{"unit": "CHF_kWh", "value": 0.1}],
+        "grid": [{"unit": "CHF_kWh", "value": 0.1}],
+        "regional_fees": [{"unit": "CHF_kWh", "value": 0.007}],
+        "total": [{"unit": "CHF_kWh", "value": 0.207}]
+      },
+      {
+        "months": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        "weekdays": ["Sa", "Su"],
+        "from": "00:00",
+        "to": "23:59",
+        "electricity": [{"unit": "CHF_kWh", "value": 0.1}],
+        "grid": [{"unit": "CHF_kWh", "value": 0.1}],
+        "regional_fees": [{"unit": "CHF_kWh", "value": 0.007}],
+        "total": [{"unit": "CHF_kWh", "value": 0.207}]
+      }
+    ],
+    "dynamic": []
+  },
+  "missing": [],
+  "municipalities": [],
+  "components": {
+    "electricity": {
+      "basis": "suggested",
+      "tariff": {
+        "tariffName": "Sample Energy Dual Rate",
+        "tariffType": "electricity",
+        "tariffForm": "multilevel",
+        "customerVoltageLevel": 7,
+        "startDate": "2026-01-01",
+        "endDate": "2026-12-31",
+        "customerType": "Households up to 100 MWh/year",
+        "prices": {
+          "base": {"price": 3, "priceUnit": "CHF/M"},
+          "energy": [
+            {
+              "months": [],
+              "weekdays": ["Mo", "Tu", "We", "Th", "Fr"],
+              "from": "07:00",
+              "to": "20:00",
+              "price": 0.15,
+              "priceUnit": "CHF/kWh"
+            },
+            {
+              "months": [],
+              "weekdays": ["Mo", "Tu", "We", "Th", "Fr"],
+              "from": "20:00",
+              "to": "23:59",
+              "price": 0.1,
+              "priceUnit": "CHF/kWh"
+            },
+            {
+              "months": [],
+              "weekdays": ["Mo", "Tu", "We", "Th", "Fr"],
+              "from": "00:00",
+              "to": "07:00",
+              "price": 0.1,
+              "priceUnit": "CHF/kWh"
+            },
+            {
+              "months": [],
+              "weekdays": ["Sa", "Su"],
+              "from": "00:00",
+              "to": "00:00",
+              "price": 0.1,
+              "priceUnit": "CHF/kWh"
+            }
+          ]
+        },
+        "id": "electricity-sample-energy-dual-rate-ne7"
+      }
+    },
+    "grid": {
+      "basis": "suggested",
+      "tariff": {
+        "tariffName": "Sample Grid Single Rate",
+        "tariffType": "grid",
+        "tariffForm": "constant",
+        "customerVoltageLevel": 7,
+        "startDate": "2026-01-01",
+        "endDate": "2026-12-31",
+        "customerType": "Households up to 100 MWh/year",
+        "prices": {
+          "base": {"price": 5, "priceUnit": "CHF/M"},
+          "energy": [
+            {
+              "months": [],
+              "weekdays": [],
+              "from": "00:00",
+              "to": "00:00",
+              "price": 0.1,
+              "priceUnit": "CHF/kWh"
+            }
+          ],
+          "refundStorage": {"price": 0.09, "priceUnit": "CHF/kWh"}
+        },
+        "id": "grid-sample-grid-single-rate-ne7"
+      }
+    },
+    "metering": {
+      "basis": "only",
+      "tariff": {
+        "tariffName": "Direct metering",
+        "tariffType": "metering",
+        "tariffForm": "constant",
+        "customerVoltageLevel": 7,
+        "startDate": "2026-01-01",
+        "endDate": "2026-12-31",
+        "customerType": "All customers with a metering point",
+        "prices": {"base": {"price": 5.4, "priceUnit": "CHF/M"}},
+        "comment": "Metering tariff per metering point and month",
+        "id": "metering-direct-metering-ne7"
+      }
+    },
+    "regional_fees": {
+      "basis": "only",
+      "tariff": {
+        "tariffName": "Municipal and cantonal fees",
+        "tariffType": "regional_fees",
+        "tariffForm": "constant",
+        "customerVoltageLevel": 7,
+        "startDate": "2026-01-01",
+        "endDate": "2026-12-31",
+        "customerType": "All customers",
+        "prices": {
+          "municipalityTaxes": [
+            {
+              "municipalityNumber": 11361,
+              "municipalityName": "Musteringen",
+              "municipalityEnergy": [
+                {
+                  "months": [],
+                  "weekdays": [],
+                  "from": "00:00",
+                  "to": "00:00",
+                  "price": 0.007,
+                  "priceUnit": "CHF/kWh"
+                }
+              ],
+              "municipalityComment": "Concession fee"
+            }
+          ],
+          "cantonalTaxes": [
+            {
+              "cantonName": "SZ",
+              "cantonEnergy": [
+                {
+                  "months": [],
+                  "weekdays": [],
+                  "from": "00:00",
+                  "to": "00:00",
+                  "price": 0,
+                  "priceUnit": "CHF/kWh"
+                }
+              ]
+            }
+          ]
+        },
+        "id": "regional-fees-municipal-and-cantonal-fees-ne7"
+      }
+    }
+  },
+  "_meta": {
+    "schemaVersion": "2.0",
+    "vseVersion": "1.0.1",
+    "generator": {
+      "name": "tariff-core",
+      "version": "5.0.0",
+      "url": "https://github.com/Strompreise-Schweiz/tariff-core"
+    },
+    "tariffs": "tariffs/2026.json",
+    "days": null,
+    "notes": []
+  }
+}

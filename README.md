@@ -31,12 +31,17 @@ entry under `prices` in `config/source.json`.
 
 ## Where what is
 
-| Question | Place | Changed by |
+| Folder | Holds | Changed by |
 |---|---|---|
-| Where does the data come from? | `config/source.json` | a person |
-| What does a person change? | `curation/<year>.json`, each change with a reason | a person |
-| What is wrong with it? | `data/checks.json` | GitHub Actions |
-| What is published? | `data/`: `sources/` as the utility sent it, the rest built from it | GitHub Actions |
+| `config/source.json` | where the data comes from | a person |
+| `curation/<year>.json` | corrections and products, each with a reason | a person |
+| `data/sources/` | the files of the utility, unchanged: the yearly file and in `days/` what the APIs sent | GitHub Actions |
+| `data/tariffs/` | all tariffs, repaired to VSE 1.0.1 and corrected. The day prices of a dynamic tariff are an addition to the yearly file of their year, in `<year>/<tariff>/<date>.json` | GitHub Actions |
+| `data/products/` | what a customer pays: `<id>/<year>.json` with every component and the total | GitHub Actions |
+| `data/checks.json` | what is wrong with all of the above | GitHub Actions |
+
+The product with `"default": true` is the standard product: what a household in the basic supply
+gets without choosing anything. Here that is `sample-standard`.
 
 `curation/<year>.source.json` is a hand-written yearly file, only for a utility without usable JSON.
 
@@ -48,7 +53,8 @@ entry under `prices` in `config/source.json`.
 3. For dynamic tariffs, add an entry under `prices` with exactly the `prices.dynamic.url` of the
    yearly file, and start "Update prices" by hand once.
 4. Propose products with `suggest-products.ts`, check them against the price sheet, and copy them
-   to `curation/<year>.json`. A product with a dynamic tariff gets one file per day in `data/products/`.
+   to `curation/<year>.json`. Mark the standard product of a household with `"default": true`. Each
+   product gets `data/products/<id>/<year>.json`, and one with a dynamic tariff also a file per day.
 
 See [`adding-organization.md`](https://github.com/Strompreise-Schweiz/tariff-core/blob/main/docs/adding-organization.md).
 

@@ -35,6 +35,7 @@
       "id": "sample-standard",
       "name": "Sample standard tariff (single rate)",
       "status": "verified",
+      "default": true,
       "sourceUrl": "https://www.ew-musteringen.ch/tarife-2026.pdf",
       "components": {
         "electricity": "electricity-sample-energy-single-rate-ne7",

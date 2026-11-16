@@ -1,5 +1,5 @@
 {
-  "$comment": "Stable entry point for this utility. Every path under data/ is also served under site.",
+  "$comment": "Stable entry point for this utility. Every path under data/ is also served under site. Start with products: the default product is what a household pays without choosing anything.",
   "organization": "Energieversorgung Musteringen (fictional)",
   "slug": "utility-template",
   "vse_id": "CH10000000001",
@@ -9,12 +9,33 @@
   "repository": "https://github.com/Strompreise-Schweiz/utility-template",
   "site": "https://data.strompreise-schweiz.ch/utility-template/",
   "checks": "https://data.strompreise-schweiz.ch/utility-template/checks.json",
+  "products": [
+    {
+      "id": "sample-standard",
+      "name": "Sample standard tariff (single rate)",
+      "default": [
+        2026
+      ],
+      "years": {
+        "2026": "https://data.strompreise-schweiz.ch/utility-template/products/sample-standard/2026.json"
+      },
+      "days": null
+    },
+    {
+      "id": "sample-dual-rate",
+      "name": "Sample dual rate",
+      "default": [],
+      "years": {
+        "2026": "https://data.strompreise-schweiz.ch/utility-template/products/sample-dual-rate/2026.json"
+      },
+      "days": null
+    }
+  ],
   "tariffs": {
     "current": "https://data.strompreise-schweiz.ch/utility-template/tariffs/current.json",
     "years": {
       "2026": "https://data.strompreise-schweiz.ch/utility-template/tariffs/2026.json"
-    }
-  },
-  "prices": [],
-  "products": []
+    },
+    "days": []
+  }
 }

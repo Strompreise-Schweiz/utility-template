@@ -7,7 +7,7 @@
     "vseVersion": "1.0.1",
     "generator": {
       "name": "tariff-core",
-      "version": "4.0.0",
+      "version": "5.0.0",
       "url": "https://github.com/Strompreise-Schweiz/tariff-core"
     },
     "year": 2026,
@@ -188,7 +188,7 @@
           "priceUnit": "CHF/M"
         },
         "dynamic": {
-          "url": "https://data.strompreise-schweiz.ch/utility-template/prices/grid-dynamic/latest.json",
+          "url": "https://data.strompreise-schweiz.ch/utility-template/tariffs/current/grid-sample-grid-dynamic-ne7.json",
           "sourceUrl": "https://api.ew-musteringen.ch/v1/tariffs?tariff_name=grid_dynamic"
         }
       },
@@ -261,12 +261,25 @@
       "id": "sample-standard",
       "name": "Sample standard tariff (single rate)",
       "status": "verified",
+      "default": true,
       "sourceUrl": "https://www.ew-musteringen.ch/tarife-2026.pdf",
       "components": {
-        "electricity": "electricity-sample-energy-single-rate-ne7",
-        "grid": "grid-sample-grid-single-rate-ne7",
-        "metering": "metering-direct-metering-ne7",
-        "regional_fees": "regional-fees-municipal-and-cantonal-fees-ne7"
+        "electricity": {
+          "tariff": "electricity-sample-energy-single-rate-ne7",
+          "basis": "curated"
+        },
+        "grid": {
+          "tariff": "grid-sample-grid-single-rate-ne7",
+          "basis": "curated"
+        },
+        "metering": {
+          "tariff": "metering-direct-metering-ne7",
+          "basis": "only"
+        },
+        "regional_fees": {
+          "tariff": "regional-fees-municipal-and-cantonal-fees-ne7",
+          "basis": "only"
+        }
       }
     },
     {
@@ -275,10 +288,22 @@
       "status": "suggested",
       "note": "Not checked against the price sheet yet.",
       "components": {
-        "electricity": "electricity-sample-energy-dual-rate-ne7",
-        "grid": "grid-sample-grid-single-rate-ne7",
-        "metering": "metering-direct-metering-ne7",
-        "regional_fees": "regional-fees-municipal-and-cantonal-fees-ne7"
+        "electricity": {
+          "tariff": "electricity-sample-energy-dual-rate-ne7",
+          "basis": "suggested"
+        },
+        "grid": {
+          "tariff": "grid-sample-grid-single-rate-ne7",
+          "basis": "suggested"
+        },
+        "metering": {
+          "tariff": "metering-direct-metering-ne7",
+          "basis": "only"
+        },
+        "regional_fees": {
+          "tariff": "regional-fees-municipal-and-cantonal-fees-ne7",
+          "basis": "only"
+        }
       }
     }
   ]
